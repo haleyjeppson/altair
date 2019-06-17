@@ -1,3 +1,79 @@
+# altair 3.1.0.0 (development version)
+
+* Update the JupyterLab renderers to Vega-Lite 3
+
+* Upgrade to Altair 3.1.0
+
+# altair 2.3.0.1
+
+* updates the image-functions from vegawidget
+
+# altair 2.3.0
+
+* upgrades to Altair 2.3.0
+
+# altair 2.2.2.2
+
+* updates exports from vegawidget
+
+# altair 2.2.2.1
+
+* adds methods `repr_text()` and `repr_vegalite2()` methods for Altair chart objects, allowing them to be rendered natively in Jupyter notebooks using IRKernel (https://irkernel.github.io) (#91, with @flying-sheep).
+
+* imports `vw_rename_datasets()` from vegawidget
+
+# altair 2.2.2.0
+
+* new versioning system: first three version numbers follow supported Altair (Python) version
+
+* updates to use Altair 2.2.2
+
+# altair 0.0.6
+
+* adds `altair_version()`, returns list of versions used for Altair, Vega, Vega-Lite, etc.
+
+* adds `as_chart()`, to import a vegaspec as an Altair chart
+ 
+* revomes rendering functions in favor of a separate package, [**vegawidget**](https://github.com/vegawidget/vegawidget) - vegawidget functions imported and exported using templating function `vegawidget::use_vegawidget()`.
+
+* adds requirement to use reticulate (>=) 1.9, to avoid conflict between data-frame variable-names and python methods (#50, @aliciaschep) and to remove the need to use the `r_to_py()` function for data (#83)
+
+* updates to use Altair 2.1.0, which offers tooltips (#29, #46, @aliciaschep)
+
+# altair 0.0.5
+
+* adds `compiled` option to `only_actions()` to conform with new option in vega-embed (#71) 
+
+* incorporates remaining galleries
+
+# altair 0.0.4
+
+* incorporates first gallery
+
+# altair 0.0.3
+
+* adapts examples gallery from Altair (#24, @haleyjeppson)
+
+* updates articles and documentation (#32)
+
+* deprecates `vegalite()` in favor of `vegawidget()` (#48)
+
+* provides methods for `knit_print()` and `print()` generics (#8)
+
+* updates versions of JS libraries: vega 3.3.1, vega-lite 2.4.3, vega-embed 3.9.0 (#33) 
+
+* removes tooltip functions (#45)
+
+* updates `.onLoad()` to run `check_altair()` on loading, and adds error handling (#43, with @aliciaschep)
+
+* updates travis.yml so that this package installs its supported version of Altair (#44)
+
+* adds function `check_altair()` to check installed version against supported version (#42, with @aliciaschep)
+
+* updates `install_altair()` (#41) 
+
+* synchronizes with Altair v2.0.x (#36)
+
 # altair 0.0.1.9000
 
 * new function to manage installation of Altair Python package: `install_altair()` (#1)

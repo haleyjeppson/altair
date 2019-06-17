@@ -17,20 +17,54 @@
 #'   vega_data <- import_vega_data()
 #'
 #'   plot_basic <-
-#'     alt$Chart(
-#'       r_to_py(vega_data$cars())
-#'     )$encode(
+#'     alt$Chart(vega_data$cars())$
+#'     encode(
 #'       x = "Miles_per_Gallon:Q",
 #'       y = "Horsepower:Q",
 #'       color = "Origin:N"
-#'     )$mark_point()
+#'     )$
+#'     mark_point()
 #' }
 #'
-#' @seealso [Altair Python documentation](https://altair-viz.github.io/index.html)
+#' @seealso [Altair Python documentation](https://altair-viz.github.io/index.html),
+#' [altair: Field Guide to Python Issues](https://vegawidget.github.io/altair/articles/field-guide-python.html)
 #' @export alt
 #'
 alt <- NULL
 
+on_altair_load <- function() {
+  check_altair(quiet = TRUE)
+
+  # leave this here in case we ever need to check the version of reticulate
+  #
+  # version_reticulate <- utils::packageVersion("reticulate")
+
+}
+
+on_altair_error <- function(e) {
+  message("Error importing Altair python package")
+  message("Please try using install_altair() to install")
+  message("")
+  message("Output from reticulate::py_config()")
+  reticulate::py_config()
+}
+
+# =============================================================================
+# Note to maintainers:
+#
+# To change the supported Python version, set the option in .onLoad
+# =============================================================================
 .onLoad <- function(libname, pkgname) {
-  alt <<- reticulate::import("altair", delay_load = TRUE)
+
+  # sets the supported version
+  options(altair.python.version = "3.1.0")
+
+  alt <<-
+    reticulate::import(
+      "altair",
+      delay_load = list(
+        on_load = on_altair_load,
+        on_error = on_altair_error
+      )
+    )
 }

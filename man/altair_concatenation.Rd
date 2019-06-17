@@ -2,24 +2,24 @@
 % Please edit documentation in R/concatenation.R
 \name{altair_concatenation}
 \alias{altair_concatenation}
-\alias{|.altair.vegalite.v2.api.TopLevelMixin}
-\alias{+.altair.vegalite.v2.api.TopLevelMixin}
-\alias{&.altair.vegalite.v2.api.TopLevelMixin}
+\alias{|.altair.vegalite.v3.api.TopLevelMixin}
+\alias{+.altair.vegalite.v3.api.TopLevelMixin}
+\alias{&.altair.vegalite.v3.api.TopLevelMixin}
 \title{Altair plot concatenation}
 \usage{
-\method{|}{altair.vegalite.v2.api.TopLevelMixin}(e1, e2)
+\method{|}{altair.vegalite.v3.api.TopLevelMixin}(e1, e2)
 
-\method{+}{altair.vegalite.v2.api.TopLevelMixin}(e1, e2)
+\method{+}{altair.vegalite.v3.api.TopLevelMixin}(e1, e2)
 
-\method{&}{altair.vegalite.v2.api.TopLevelMixin}(e1, e2)
+\method{&}{altair.vegalite.v3.api.TopLevelMixin}(e1, e2)
 }
 \arguments{
-\item{e1}{An Altair plot object}
+\item{e1}{Altair chart object}
 
-\item{e2}{An Altair plot object}
+\item{e2}{Altair chart object}
 }
 \value{
-Compound Altair plot object
+Compound Altair chart object
 }
 \description{
 Altair plots can be concatenated using the following operators:
@@ -29,7 +29,7 @@ Altair plots can be concatenated using the following operators:
 
 # Examples using the beaver1 and beaver2 body temperature data sets
 # Layering Charts
-base <- alt$Chart(r_to_py(beaver1))$encode(
+base <- alt$Chart(beaver1)$encode(
   x = alt$X('time'),
   y = alt$Y('temp', scale = alt$Scale(zero = FALSE))
 )
@@ -40,7 +40,7 @@ line_plot <- base$mark_line()
 combined_plot <- scatter_plot + line_plot
 
 # Horizontal Concatenation
-base2 <- alt$Chart(r_to_py(beaver2))$encode(
+base2 <- alt$Chart(beaver2)$encode(
   x = alt$X('time'),
   y = alt$Y('temp', scale = alt$Scale(zero = FALSE))
 )
@@ -57,5 +57,4 @@ hconcat_plot <- combined_plot | combined_plot2
 
 vconcat_plot <- combined_plot & combined_plot2
 
-# Use vegalite function to render combined_plot, hconcat_plot, or vconcat_plot
 }

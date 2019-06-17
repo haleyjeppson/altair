@@ -4,10 +4,10 @@
 #' `+`, `|`, and `&`
 #' @md
 #'
-#' @param e1 An Altair plot object
-#' @param e2 An Altair plot object
+#' @param e1 Altair chart object
+#' @param e2 Altair chart object
 #'
-#' @return Compound Altair plot object
+#' @return Compound Altair chart object
 #'
 #' @rdname altair_concatenation
 #' @name altair_concatenation
@@ -15,7 +15,7 @@
 #'
 #' # Examples using the beaver1 and beaver2 body temperature data sets
 #' # Layering Charts
-#' base <- alt$Chart(r_to_py(beaver1))$encode(
+#' base <- alt$Chart(beaver1)$encode(
 #'   x = alt$X('time'),
 #'   y = alt$Y('temp', scale = alt$Scale(zero = FALSE))
 #' )
@@ -26,7 +26,7 @@
 #' combined_plot <- scatter_plot + line_plot
 #'
 #' # Horizontal Concatenation
-#' base2 <- alt$Chart(r_to_py(beaver2))$encode(
+#' base2 <- alt$Chart(beaver2)$encode(
 #'   x = alt$X('time'),
 #'   y = alt$Y('temp', scale = alt$Scale(zero = FALSE))
 #' )
@@ -43,16 +43,16 @@
 #'
 #' vconcat_plot <- combined_plot & combined_plot2
 #'
-#' # Use vegalite function to render combined_plot, hconcat_plot, or vconcat_plot
 NULL
 
 is_altair_chart <- function(x) {
-  inherits(x, "altair.vegalite.v2.api.TopLevelMixin")
+  inherits(x, "altair.vegalite.v3.api.TopLevelMixin")
 }
 
 #' @rdname altair_concatenation
 #' @export
-"|.altair.vegalite.v2.api.TopLevelMixin" <- function(e1, e2) {
+#'
+"|.altair.vegalite.v3.api.TopLevelMixin" <- function(e1, e2) {
   if (!is_altair_chart(e2)) {
     stop("Second argument to | is not an Altair Chart")
   }
@@ -61,7 +61,8 @@ is_altair_chart <- function(x) {
 
 #' @rdname altair_concatenation
 #' @export
-"+.altair.vegalite.v2.api.TopLevelMixin" <- function(e1, e2) {
+#'
+"+.altair.vegalite.v3.api.TopLevelMixin" <- function(e1, e2) {
   if (!is_altair_chart(e2)) {
     stop("Second argument to + is not an Altair Chart")
   }
@@ -70,7 +71,8 @@ is_altair_chart <- function(x) {
 
 #' @rdname altair_concatenation
 #' @export
-"&.altair.vegalite.v2.api.TopLevelMixin" <- function(e1, e2) {
+#'
+"&.altair.vegalite.v3.api.TopLevelMixin" <- function(e1, e2) {
   if (!is_altair_chart(e2)) {
     stop("Second argument to & is not an Altair Chart")
   }

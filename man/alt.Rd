@@ -4,7 +4,7 @@
 \name{alt}
 \alias{alt}
 \title{Altair object}
-\format{An object of class \code{python.builtin.module} (inherits from \code{python.builtin.object}) of length 2.}
+\format{An object of class \code{python.builtin.module} (inherits from \code{python.builtin.object}) of length 5.}
 \usage{
 alt
 }
@@ -25,17 +25,18 @@ used in Python.
   vega_data <- import_vega_data()
 
   plot_basic <-
-    alt$Chart(
-      r_to_py(vega_data$cars())
-    )$encode(
+    alt$Chart(vega_data$cars())$
+    encode(
       x = "Miles_per_Gallon:Q",
       y = "Horsepower:Q",
       color = "Origin:N"
-    )$mark_point()
+    )$
+    mark_point()
 }
 
 }
 \seealso{
-\href{https://altair-viz.github.io/index.html}{Altair Python documentation}
+\href{https://altair-viz.github.io/index.html}{Altair Python documentation},
+\href{https://vegawidget.github.io/altair/articles/field-guide-python.html}{altair: Field Guide to Python Issues}
 }
 \keyword{datasets}

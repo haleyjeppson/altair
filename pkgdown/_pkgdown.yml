@@ -1,0 +1,131 @@
+template:
+  params:
+    bootswatch: sandstone
+    docsearch:
+      api_key: 0d6a37c7b714a8042d5ce01dad53be53
+      index_name: altair
+
+development:
+  mode: unreleased
+
+reference:
+  - title: Installation
+    desc: >
+      Functions to help install the Python Altair library
+    contents:
+      - install_altair
+      - check_altair
+      - altair_version
+  - title: Charts
+    desc: >
+      Functions and objects to construct chart-specifications
+    contents:
+      - alt
+      - import_vega_data
+      - as_chart
+      - as_vegaspec
+      - vw_as_json
+      - altair_concatenation
+      - r_to_py
+  - title: Rendering
+    desc: >
+      Functions to render chart-specifications
+    contents:
+      - vegawidget
+      - vega_embed
+      - renderVegawidget
+      - vegawidgetOutput
+      - knit_print.altair.vegalite.v3.api.TopLevelMixin
+      - image
+  - title: Package
+    desc: Overview of the package
+    contents:
+      - altair
+
+articles:
+  - title: Installation
+    contents:
+      - installation
+  - title: Getting started
+    contents:
+      - first-example
+      - tooltips
+      - vega-datasets
+      - view-composition
+      - interactive
+  - title: Field guides
+    contents:
+      - field-guide-python
+      - field-guide-rendering
+  - title: Gallery
+    contents:
+      - example-gallery-01-simple
+      - example-gallery-02-bar-charts
+      - example-gallery-03-line-charts
+      - example-gallery-04-area-charts
+      - example-gallery-05-scatter-plots
+      - example-gallery-06-histograms
+      - example-gallery-07-maps
+      - example-gallery-08-interactive-charts
+      - example-gallery-09-other-charts
+  - title: Manifesto
+    contents:
+      - manifesto
+
+navbar:
+  title: "altair"
+  left:
+    - icon: fa-home fa-lg
+      href: index.html
+    - text: "Reference"
+      href: "reference/index.html"
+    - text: "Changelog"
+      href: "news/index.html"
+    - text: Articles
+      menu:
+        - text: Installation
+          href: articles/installation.html
+        - text: "----------"
+        - text: Getting Started
+        - text: First Example
+          href: articles/first-example.html
+        - text: Tooltips
+          href: articles/tooltips.html
+        - text: Vega Datasets
+          href: articles/vega-datasets.html
+        - text: View Composition
+          href: articles/view-composition.html
+        - text: Interactive Charts
+          href: articles/interactive.html
+        - text: "----------"
+        - text: Field Guides
+        - text: Python Issues
+          href: articles/field-guide-python.html
+        - text: Rendering Charts
+          href: articles/field-guide-rendering.html
+        - text: "----------"
+        - text: Manifesto
+          href: articles/manifesto.html
+    - text: Gallery
+      menu:
+        - text: Simple Charts
+          href: articles/example-gallery-01-simple.html
+        - text: Bar Charts
+          href: articles/example-gallery-02-bar-charts.html
+        - text: Line Charts
+          href: articles/example-gallery-03-line-charts.html
+        - text: Area Charts
+          href: articles/example-gallery-04-area-charts.html
+        - text: Scatterplots
+          href: articles/example-gallery-05-scatter-plots.html
+        - text: Histograms
+          href: articles/example-gallery-06-histograms.html
+        - text: Maps
+          href: articles/example-gallery-07-maps.html
+        - text: Interactive Charts
+          href: articles/example-gallery-08-interactive-charts.html
+        - text: Other Charts
+          href: articles/example-gallery-09-other-charts.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/vegawidget/altair
